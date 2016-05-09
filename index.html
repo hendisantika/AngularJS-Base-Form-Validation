@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="szalekApp">
+<head>
+    <title>Angular Form</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+ 
+<style type="text/css">
+    input.ng-invalid.ng-dirty {
+        border: 2px solid red;
+    }
+ 
+    input.ng-valid.ng-dirty {
+        border: 2px solid green;
+    }
+</style>
+ 
+<body>
+<section class="container" ng-controller="FormController">
+    <form novalidate name="myform">
+ 
+        Name:
+        <input type="text" required ng-model="user.name" class="form-control"/>
+ 
+        Email:
+        <input type="email" ng-model="user.email" class="form-control"/>
+ 
+        MinMaxlength:
+        <input type="text" maxlength="20" ng-model="user.minMaxlength" class="form-control"/>
+ 
+        MinMax:
+        <input type="number" max="40" min="10" ng-model="user.minMax" class="form-control"/>
+ 
+        Url:
+        <input type="url" ng-model="user.url" class="form-control"/>
+ 
+        <button ng-click="update(user)">SAVE</button>
+    </form>
+ 
+    Log:
+    <pre>{{user | json}}</pre>
+ 
+    IsValid:
+    <pre>{{myform.$valid}}</pre>
+ 
+</section>
+</body>
+ 
+<script src="app/angular.min.js"></script>
+<script src="app/app.js"></script>
+ 
+</html>
